@@ -1,0 +1,36 @@
+.home-page-main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;    
+    background-size: cover;
+}
+
+.home-page-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.home-page-middle {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;    
+}
+
+.home-page-middle-main-text {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 20px;
+    margin-top: 40px;
+    font-size: 27px;
+    font-weight: 500;
+}
+
+.home-page-footer {
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: center;
+}

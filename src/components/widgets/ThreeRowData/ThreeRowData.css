@@ -1,0 +1,23 @@
+.three-row-main{
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+}
+
+.three-row-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.three-row-item-value{
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.three-row-item-title{
+    font-size: 14px;
+    font-weight: 400;
+    color: #787878;
+}
