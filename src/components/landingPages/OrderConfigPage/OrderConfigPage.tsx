@@ -10,6 +10,8 @@ import RoundButtonTwoValues from "../../widgets/RoundButtonTwoValues/RoundButton
 import './OrderConfig.css'
 import RoundButton from "../../widgets/RoundButton/RoundButton";
 import { RoundButtonModel } from "../../widgets/RoundButton/RoundButtonModel";
+import { Link } from "react-router-dom";
+import { OrderCompleteModel, OrderCompleteProps } from "../OrderCompletePage/OrderCompleteModel";
 
 const OrderConfigPage = () => {
     const [carConfig, setCarConfig] = useState<CarConfiguration>();
@@ -62,7 +64,15 @@ const OrderConfigPage = () => {
         text: 'Order',
         textColor: '#FFF',
         border: '0',
-        onClickFunction: () => { }
+        onClickFunction: '/orderComplete'
+    }
+
+    const orderCompleteModel: OrderCompleteModel = {
+        variantIndex: variantIndex,
+        paintIndex: paintIndex,
+        autopilot: autopilot,
+        wheelIndex: wheelIndex,
+        modelId: modelId
     }
 
     return (
@@ -176,10 +186,16 @@ const OrderConfigPage = () => {
                         <div className="property-selected-price">Estimated Deliver: 6-8 weeks</div>
                     </div>
 
-                    <div className="order-config-order-button-container">
-                        <RoundButton roundButtonModel={orderButton}></RoundButton>
-                    </div>
-
+                    <Link to={{
+                        pathname: '/orderComplete',
+                        state: {
+                            choosenModel: 'abcdefg'
+                        }
+                    }}>
+                        <div className="order-config-order-button-container">
+                            <RoundButton roundButtonModel={orderButton}></RoundButton>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div >

@@ -16,46 +16,7 @@ import HomePage from './components/landingPages/HomePage/HomePage';
 import AllCarsPage from './components/landingPages/AllCarsPage/AllCarsPage';
 import CarDetailsPage from './components/landingPages/CarDetailsPage/CarDetailsPage';
 import OrderConfigPage from './components/landingPages/OrderConfigPage/OrderConfigPage';
-
-
-const acc: Acceleration = {
-  speed: '10',
-  time: 20
-}
-
-const cardVal: AllItemsCardModel = {
-  displayName: 'ModelS',
-  model: 'modelS',
-  range: 10,
-  topSpeed: 20,
-  peakPower: 10,
-  img: '',
-  acceleration: acc
-}
-
-// const buttonVal: RoundButtonModel = {
-//   text: 'ALL CARS',
-//   backgroundColor: '#464646',
-//   textColor: '#FFF',
-//   border: '0'
-// }
-
-// const twoValButton: RoundButtonTwoValuesModel = {
-//   value1: 'Long Range',
-//   value2: '$79,900',
-//   borderColor: '#787878',
-//   borderColorSelected: '#097BE4',
-//   selected: true
-// }
-
-const threeRowDataModel: ThreeRowDataModel = {
-  accelerationTime: '1.98 sec',
-  estimatedRange: '520 mi',
-  topSpeed: '200 mph'
-}
-
-
-
+import OrderComplete from './components/landingPages/OrderCompletePage/OrderComplete';
 
 function App() {
   return (
@@ -67,39 +28,10 @@ function App() {
           <Route exact path='/models/all' component={AllCarsPage} />
           <Route exact path='/models/:modelId' component={CarDetailsPage} />
           <Route exact path='/models/:modelId/order' component={OrderConfigPage} />
-          {/*  <Route exact path='/orderComplete/:modelId/:variant/:paint/:wheel/:autopilot' component={OrderConfirm} /> */}
+          <Route exact path='/orderComplete' component={OrderComplete} />
         </Switch>
 
       </div>
-      {/* <article className="tweet">
-        <img
-          className="avatar"
-          src="http://www.gravatar.com/avatar"
-          alt="name"
-        />
-        <div className="content">
-          <div className="author-meta">
-            <span className="handle">@handle</span>
-            <span className="name">Name</span>
-            <span className="time">3hrs ago</span>
-          </div>
-
-          <p>Some insightful message</p>
-
-          <ul className="actions">
-            <li><button>Reply</button></li>
-            <li><button>Retweet</button></li>
-            <li><button>Like</button></li>
-            <li><button>...</button></li>
-          </ul>
-        </div>
-      </article>
-
-      <AllItemCard allItemsCardModel={cardVal}></AllItemCard>
-      {/* <RoundButton roundButtonModel={buttonVal}></RoundButton> */}
-      {/* <RoundButtonTwoValues roundButtonTwoValuesModel={twoValButton}></RoundButtonTwoValues>
-      <ThreeRowData threeRowDataModel={threeRowDataModel}></ThreeRowData>
-      */ }
     </BrowserRouter>
 
   );

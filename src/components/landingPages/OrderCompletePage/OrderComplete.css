@@ -1,0 +1,84 @@
+.order-complete-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-complete-logo-container {
+    display: flex;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.order-complete-top-heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.order-complete-check-mark {
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.order-complete-top-text {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.order-complete-pet-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+.order-complete-pet-image {
+    display: block;
+    width: 60%;
+    height: auto;
+}
+
+.order-complete-display-name {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.order-complete-car-image-container {
+    display: flex;
+    justify-content: center;
+}
+.order-complete-car-image {
+    display: block;
+    width: 30%;
+    height: auto;
+}
+
+.order-complete-two-button-wrapper {
+    margin-bottom: 40px;
+}
+
+.order-complete-property {
+    display: flex;
+    flex-direction: row;
+    width: 35%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.order-complete-price-container {
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+.order-complete-footer-container {
+    display: flex;
+    flex-direction: row;
+    width: 32%;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}

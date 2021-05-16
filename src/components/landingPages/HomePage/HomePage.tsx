@@ -7,6 +7,7 @@ import { HomePageProps } from "./HomePageModel";
 import backgroundDesktopDefault from '../../../assets/images/home-desktop.png'
 import backgroundMobileDefault from '../../../assets/images/home-mobile.png'
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom'
 
 const HomePage: React.FC<HomePageProps> = ({ homePageModel }: HomePageProps) => {
 
@@ -15,6 +16,7 @@ const HomePage: React.FC<HomePageProps> = ({ homePageModel }: HomePageProps) => 
     const backgroundMobile = homePageModel ? homePageModel.backgroundImageMobile : backgroundMobileDefault
     const imageUrl = windowWidth >= 650 ? backgroundDesktop : backgroundMobile;
     const desktopMode = windowWidth >= 650;
+    const buttonOnClickRedirection = homePageModel ? homePageModel.buttonOnClickFunction : '/models/all'
 
     useEffect(() => {
         const handleWindowResize = () => {
@@ -51,10 +53,12 @@ const HomePage: React.FC<HomePageProps> = ({ homePageModel }: HomePageProps) => 
             </div>
 
             <div className='home-page-footer'>
-                <RoundButton roundButtonModel={roundButton}></RoundButton>
+                <Link to={buttonOnClickRedirection}>
+                    <RoundButton roundButtonModel={roundButton}></RoundButton>
+                </Link>
             </div>
 
-        </div>
+        </div >
     )
 }
 

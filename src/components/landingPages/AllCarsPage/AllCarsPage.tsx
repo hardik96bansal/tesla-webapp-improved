@@ -3,6 +3,7 @@ import { AllItemsCardModel } from "../../widgets/AllItemsCard/AllItemsCardModel"
 import Logo from "../../widgets/Logo/Logo"
 import AllItemCard from "../../widgets/AllItemsCard/AllItemsCard"
 import './AllCarsPage.css'
+import { Link } from 'react-router-dom'
 
 import ModelSCard from '../../../assets/images/model-s-card.png'
 import Model3Card from '../../../assets/images/model-3-card.png'
@@ -66,7 +67,11 @@ const AllCarsPage = () => {
                 {
                     carList.map((carDetail, index) => {
                         carDetail.img = imageMap.get(carDetail.model);
-                        return <AllItemCard allItemsCardModel={carDetail}></AllItemCard>
+                        return (
+                            <Link to={'/models/' + carDetail.model} style={{ textDecoration: 'none' }}>
+                                <AllItemCard allItemsCardModel={carDetail}></AllItemCard>
+                            </Link>
+                        )
                     })
                 }
             </div>

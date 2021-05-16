@@ -15,6 +15,7 @@ const CarDetailsPage = () => {
 
     const { modelId } = useParams<{ modelId: string }>();
     const [carSpecification, setCarSpecification] = useState<CarSpecification>();
+    const [variantIndex, setVariantIndex] = useState(0);
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const desktopMode = windowWidth >= 650;
@@ -52,7 +53,7 @@ const CarDetailsPage = () => {
         buttonTextColor: '#FFF',
         buttonText: 'Order',
         centerText: carSpecification?.displayName || '',
-        buttonOnClickFunction: undefined
+        buttonOnClickFunction: '/models/' + modelId + '/order'
     }
 
     return (
@@ -77,9 +78,9 @@ const CarDetailsPage = () => {
                             const roundButtonModel: RoundButtonModel = {
                                 text: variant.variantName,
                                 textColor: '#FFF',
-                                border: '2px solid #787878',
-                                backgroundColor: '#000',
-                                onClickFunction: () => { }
+                                border: variantIndex == index ? '2px solid #097BE4' : '2px solid #787878',
+                                backgroundColor: variantIndex == index ? '#464646' : '#000',
+                                onClickFunction: () => setVariantIndex(index)
                             }
                             return <RoundButton roundButtonModel={roundButtonModel} />
                         })}
@@ -87,19 +88,19 @@ const CarDetailsPage = () => {
 
                     <div className="car-details-info-columns">
                         <div className="car-details-info-col1">
-                            <InfoPair value1="Range" value2={carSpecification?.variants[0].range + " mi"} textColor="#FFF" />
-                            <InfoPair value1="Peak Power" value2={carSpecification?.variants[0].peakPower} textColor="#FFF" />
-                            <InfoPair value1="Top Speed" value2={carSpecification?.variants[0].topSpeed} textColor="#FFF" />
-                            <InfoPair value1="Weight" value2={carSpecification?.variants[0].weight} textColor="#FFF" />
-                            <InfoPair value1="Cargo Capacity" value2={carSpecification?.variants[0].cargo} textColor="#FFF" />
+                            <InfoPair value1="Range" value2={carSpecification?.variants[variantIndex].range + " mi"} textColor="#FFF" />
+                            <InfoPair value1="Peak Power" value2={carSpecification?.variants[variantIndex].peakPower} textColor="#FFF" />
+                            <InfoPair value1="Top Speed" value2={carSpecification?.variants[variantIndex].topSpeed} textColor="#FFF" />
+                            <InfoPair value1="Weight" value2={carSpecification?.variants[variantIndex].weight} textColor="#FFF" />
+                            <InfoPair value1="Cargo Capacity" value2={carSpecification?.variants[variantIndex].cargo} textColor="#FFF" />
                         </div>
 
                         <div className="car-details-info-col1">
-                            <InfoPair value1="Power Train" value2={carSpecification?.variants[0].powertrain + " mi"} textColor="#FFF" />
-                            <InfoPair value1="Acceleration" value2={carSpecification?.variants[0].acceleration.time} textColor="#FFF" />
-                            <InfoPair value1="Drag Coefficient" value2={carSpecification?.variants[0].dragCoefficient} textColor="#FFF" />
-                            <InfoPair value1="Wheels" value2={carSpecification?.variants[0].wheels} textColor="#FFF" />
-                            <InfoPair value1="Charging" value2={carSpecification?.variants[0].onboardChargerMax} textColor="#FFF" />
+                            <InfoPair value1="Power Train" value2={carSpecification?.variants[variantIndex].powertrain + " mi"} textColor="#FFF" />
+                            <InfoPair value1="Acceleration" value2={carSpecification?.variants[variantIndex].acceleration.time} textColor="#FFF" />
+                            <InfoPair value1="Drag Coefficient" value2={carSpecification?.variants[variantIndex].dragCoefficient} textColor="#FFF" />
+                            <InfoPair value1="Wheels" value2={carSpecification?.variants[variantIndex].wheels} textColor="#FFF" />
+                            <InfoPair value1="Charging" value2={carSpecification?.variants[variantIndex].onboardChargerMax} textColor="#FFF" />
                         </div>
                     </div>
                 </div>
