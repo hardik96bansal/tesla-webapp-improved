@@ -14,6 +14,8 @@ import Logo from './components/widgets/Logo/Logo';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import HomePage from './components/landingPages/HomePage/HomePage';
 import AllCarsPage from './components/landingPages/AllCarsPage/AllCarsPage';
+import CarDetailsPage from './components/landingPages/CarDetailsPage/CarDetailsPage';
+import OrderConfigPage from './components/landingPages/OrderConfigPage/OrderConfigPage';
 
 
 const acc: Acceleration = {
@@ -31,18 +33,20 @@ const cardVal: AllItemsCardModel = {
   acceleration: acc
 }
 
-const buttonVal: RoundButtonModel = {
-  text: 'ALL CARS',
-  backgroundColor: '#464646',
-  textColor: '#FFF'
-}
+// const buttonVal: RoundButtonModel = {
+//   text: 'ALL CARS',
+//   backgroundColor: '#464646',
+//   textColor: '#FFF',
+//   border: '0'
+// }
 
-const twoValButton: RoundButtonTwoValuesModel = {
-  value1: 'Long Range',
-  value2: '$79,900',
-  borderColor: '#787878',
-  borderColorSelected: '#097BE4'
-}
+// const twoValButton: RoundButtonTwoValuesModel = {
+//   value1: 'Long Range',
+//   value2: '$79,900',
+//   borderColor: '#787878',
+//   borderColorSelected: '#097BE4',
+//   selected: true
+// }
 
 const threeRowDataModel: ThreeRowDataModel = {
   accelerationTime: '1.98 sec',
@@ -61,9 +65,9 @@ function App() {
         <Switch>
           <Route exact path='/' component={HomePage}></Route>
           <Route exact path='/models/all' component={AllCarsPage} />
-          {/*  <Route exact path='/models/:modelId' component={CarDetails} />
-            <Route exact path='/models/:modelId/order' component={OrderConfig} />
-            <Route exact path='/orderComplete/:modelId/:variant/:paint/:wheel/:autopilot' component={OrderConfirm} /> */}
+          <Route exact path='/models/:modelId' component={CarDetailsPage} />
+          <Route exact path='/models/:modelId/order' component={OrderConfigPage} />
+          {/*  <Route exact path='/orderComplete/:modelId/:variant/:paint/:wheel/:autopilot' component={OrderConfirm} /> */}
         </Switch>
 
       </div>

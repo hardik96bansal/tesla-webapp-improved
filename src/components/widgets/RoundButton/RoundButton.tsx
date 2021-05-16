@@ -5,9 +5,11 @@ import './RoundButton.css'
 const RoundButton: React.FC<RoundButtonProps> = ({ roundButtonModel }: RoundButtonProps) => {
     return (
         <button className='custom-button-round'
+            onClick={roundButtonModel.onClickFunction}
             style={{
                 backgroundColor: roundButtonModel.backgroundColor,
-                color: roundButtonModel.textColor
+                color: roundButtonModel.textColor,
+                border: roundButtonModel.border
             }}>{roundButtonModel.text}</button>
     )
 }
