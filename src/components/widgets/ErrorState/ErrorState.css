@@ -1,0 +1,20 @@
+.error-state-container {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-state-image {
+    display: block;
+    width: 5%;
+    height: auto;
+}
+
+.error-state-text {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+}

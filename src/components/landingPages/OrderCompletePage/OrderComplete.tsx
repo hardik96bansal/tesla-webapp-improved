@@ -17,6 +17,7 @@ import Logo from "../../widgets/Logo/Logo";
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
 import { useLocation, Link } from 'react-router-dom'
+import LoadingState from "../../widgets/LoadingState/LoadingState";
 
 const OrderComplete: React.FC<OrderCompleteProps> = (orderCompleteModel: any) => {
     console.log('uuuu', useLocation(), this, orderCompleteModel)
@@ -27,6 +28,7 @@ const OrderComplete: React.FC<OrderCompleteProps> = (orderCompleteModel: any) =>
     const [wheelIndex, setWheelIndex] = useState(orderCompleteModel?.wheelIndex || 0);
     const [autopilot, setAutopilot] = useState(orderCompleteModel?.autopilot || 0)
     const modelId = orderCompleteModel?.modelId || 'modelS'
+    const [printing, setPrinting] = useState(false);
 
     useEffect(() => {
         const getCarConfiguration = async () => {
@@ -101,6 +103,7 @@ const OrderComplete: React.FC<OrderCompleteProps> = (orderCompleteModel: any) =>
     }
 
     const printDocument = () => {
+        setPrinting(true);
         const input = document.getElementById('order-complete-main')!;
         html2canvas(input, { scrollY: -window.scrollY })
             .then((canvas) => {
@@ -113,15 +116,16 @@ const OrderComplete: React.FC<OrderCompleteProps> = (orderCompleteModel: any) =>
                 const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
                 pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
                 pdf.save('order-invoice.pdf');
+                setPrinting(false)
             });
     }
 
     return (
         <div className="order-complete-main" id="order-complete-main">
-            <div className="order-complete-logo-container">
+            <div className="order-complete-logo-container" style={{ opacity: printing ? '20%' : '100%' }}>
                 <Logo></Logo>
             </div>
-            <div className="order-complete-content">
+            <div className="order-complete-content" style={{ opacity: printing ? '20%' : '100%' }}>
                 <div className="order-complete-top-heading">
                     <img className="order-complete-check-mark" src={CheckMark}></img>
                     <label className="order-complete-top-text">Your Order is Complete</label>
@@ -173,6 +177,10 @@ const OrderComplete: React.FC<OrderCompleteProps> = (orderCompleteModel: any) =>
                     <RoundButton roundButtonModel={downloadButtonModel}></RoundButton>
                 </div>
             </div>
+
+            {printing && <div className="order-complete-loading-container">
+                <LoadingState />
+            </div>}
         </div >
     )
 }

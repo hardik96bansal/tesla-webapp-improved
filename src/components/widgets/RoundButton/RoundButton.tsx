@@ -4,7 +4,7 @@ import './RoundButton.css'
 
 const RoundButton: React.FC<RoundButtonProps> = ({ roundButtonModel }: RoundButtonProps) => {
     return (
-        <button className='custom-button-round'
+        <button data-testid="round-button" className='custom-button-round'
             onClick={roundButtonModel.onClickFunction}
             style={{
                 backgroundColor: roundButtonModel.backgroundColor,

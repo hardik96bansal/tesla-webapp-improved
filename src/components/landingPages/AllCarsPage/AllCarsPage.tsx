@@ -9,12 +9,17 @@ import ModelSCard from '../../../assets/images/model-s-card.png'
 import Model3Card from '../../../assets/images/model-3-card.png'
 import ModelXCard from '../../../assets/images/model-x-card.png'
 import ModelYCard from '../../../assets/images/model-y-card.png'
+import Loading from '../../../assets/images/loading.gif'
+import LoadingState from "../../widgets/LoadingState/LoadingState"
+import ErrorState from "../../widgets/ErrorState/ErrorState"
+
 
 const AllCarsPage = () => {
 
     const [carList, setCarList] = useState<AllItemsCardModel[]>([]);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [desktopMode, setDesktopMode] = useState(true)
+    const [errored, setErrorred] = useState(false)
 
     useEffect(() => {
         const handleWindowResize = () => {
@@ -32,15 +37,15 @@ const AllCarsPage = () => {
 
     const fetchCarList = async () => {
         let response = await fetch("https://tesla-app-server.herokuapp.com/models/all");
-
         if (!response.ok) {
-            alert('Server Down')
+            setErrorred(true)
+            return;
         }
         await setCarList(await response.json().then(resp => resp.elements))
     }
 
     useEffect(() => {
-        fetchCarList();
+        setTimeout(fetchCarList, 2500);
 
     }, [])
 
@@ -64,6 +69,8 @@ const AllCarsPage = () => {
                 style={{
                     flexDirection: desktopMode ? 'row' : 'column'
                 }}>
+                {carList.length == 0 && !errored && <LoadingState />}
+                {errored && < ErrorState />}
                 {
                     carList.map((carDetail, index) => {
                         carDetail.img = imageMap.get(carDetail.model);

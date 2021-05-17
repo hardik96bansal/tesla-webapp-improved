@@ -1,0 +1,20 @@
+.loading-spinner-container {
+    margin-top: -10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-spinner-image {
+    display: block;
+    width: 32%;
+    height: auto;
+}
+
+.loading-spinner-text {
+    margin-top: 0%;
+    font-size: 16px;
+    font-weight: 500;
+}

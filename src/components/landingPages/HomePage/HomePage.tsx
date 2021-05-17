@@ -39,7 +39,7 @@ const HomePage: React.FC<HomePageProps> = ({ homePageModel }: HomePageProps) => 
     }
 
     return (
-        <div className="home-page-main" style={{ backgroundImage: `url(${imageUrl})` }}>
+        <div className="home-page-main" style={{ backgroundImage: `url(${imageUrl})` }} data-testid="home-page">
             <div className='home-page-header'>
                 <div className='home-page-header-image'>
                     <Logo></Logo>

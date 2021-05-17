@@ -3,7 +3,7 @@ import './RoundButtonTwoValues.css'
 
 const RoundButtonTwoValues: React.FC<RoundButtonTwoValuesProps> = ({ roundButtonTwoValuesModel }: RoundButtonTwoValuesProps) => {
     return (
-        <div className='custom-round-button-two-vaules'
+        <div className='custom-round-button-two-vaules' data-testid="round-button-two-values"
             style={{ borderColor: roundButtonTwoValuesModel.selected ? roundButtonTwoValuesModel.borderColorSelected : roundButtonTwoValuesModel.borderColor }}
             onClick={roundButtonTwoValuesModel.onClickFunction}>
             <label className='value1-btn'>{roundButtonTwoValuesModel.value1}</label>

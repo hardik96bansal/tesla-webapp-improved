@@ -3,7 +3,7 @@ import './ThreeRowData.css'
 
 const ThreeRowData = ({ estimatedRange, topSpeed, accelerationTime }: any) => {
     return (
-        <div className="three-row-main">
+        <div className="three-row-main" data-testid="three-row-data">
             <div className="three-row-item">
                 <span className="three-row-item-value">{estimatedRange}</span>
                 <span className="three-row-item-title">Est Range</span>
